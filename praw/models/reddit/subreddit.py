@@ -4111,7 +4111,7 @@ class SubredditWiki:
         """
         name = name.replace(" ", "_").lower()
         new = WikiPage(self.subreddit._reddit, self.subreddit, name)
-        new.edit(content=content, reason=reason, **other_settings)
+        new.edit(content, reason=reason, **other_settings)
         return new
 
     def revisions(
