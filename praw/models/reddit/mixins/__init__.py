@@ -3,6 +3,7 @@ from json import dumps
 from typing import TYPE_CHECKING, Optional
 
 from ....const import API_PATH
+from ....util import _deprecate_args
 from .editable import EditableMixin
 from .fullname import FullnameMixin
 from .gildable import GildableMixin
@@ -66,7 +67,8 @@ class ThingModerationMixin:
         """
         self.thing._reddit.post(API_PATH["approve"], data={"id": self.thing.fullname})
 
-    def distinguish(self, how: str = "yes", sticky: bool = False):
+    @_deprecate_args("how", "sticky")
+    def distinguish(self, *, how: str = "yes", sticky: bool = False):
         """Distinguish a :class:`.Comment` or :class:`.Submission`.
 
         :param how: One of ``"yes"``, ``"no"``, ``"admin"``, or ``"special"``. ``"yes"``
