@@ -28,7 +28,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install --upgrade setuptools wheel .[lint]
     - name: Run pre-commit hooks
-      uses: LilSpazJoekp/pre-commit-action@v2.0.8
+      uses: LilSpazJoekp/pre-commit-action@v2.0.9
     - name: Run sphinx
       run: sphinx-build -W --keep-going docs/ /tmp/foo
     strategy:
